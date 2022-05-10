@@ -6,8 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-
-
 puts "Cadastrado dos tipos de contactos..."
 3.times do |i| 
 	Kind.create!(
@@ -20,10 +18,7 @@ puts "Cadastrado dos tipos de contactos..."
 		description: "Jogo"
 	)
 end
-
 puts "Tipos de contactos cadastrado com sucesso."
-
-
 
 
 puts "Cadastrado os contactos..."
@@ -32,9 +27,10 @@ puts "Cadastrado os contactos..."
 		name: Faker::Name.name,
 		email: Faker::Internet.email,
 		birthdate: Faker::Date.between(from: '1990-09-23', to: '2022-09-25'),
-		kind_id: 1
+		kind: Kind.all.sample
 	)
 end
 
 puts "Contactos cadastrado com sucesso."
+
 
