@@ -2,17 +2,23 @@ class Contact < ApplicationRecord
 	
 	belongs_to :kind
 	has_many :phones
+	accepts_nested_attributes_for :phones, allow_destroy: true
 
 	def author
 	  "Vicente Rúben Xavier Simão"
 	end
-	# def as_json(options={})
-	#   super(
-	#   	root: true,
-	#   	methods: :author, 
-	#   	include: {kind: { only: [:description]  }}
-	#   	)
-	# end
+	def as_json(options={})
+	  super(
+	  	root: true,
+	  	methods: :author, 
+	  	include: {
+	  		kind: { only: [:description] },
+	  		phones: { only: [:number] }
+
+	  	}	
+	
+	  	)
+	end
 
 	def in_portuguese
 	 {
