@@ -10,13 +10,14 @@ class ContactsController < ApplicationController
 
   # GET /contacts/1
   def show
-    render json: { contact:  @contact.in_portuguese, message: "Success." }
+    #render json: { contact:  @contact.in_portuguese, message: "Success." }
+    render json: @contact 
   end
 
   # POST /contacts
   def create
     @contact = Contact.new(contact_params)
-
+    debugger
     if @contact.save
       render json: @contact, status: :created, location: @contact
     else
@@ -46,6 +47,6 @@ class ContactsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contact_params
-      params.require(:contact).permit(:name, :email, :birthdate, phones_attributes:{ phones_ids:[] }, :kind_id)
+      params.require(:contact).permit(:name, :email, :birthdate, :kind_id, phones_attributes: [:number])
     end
 end
