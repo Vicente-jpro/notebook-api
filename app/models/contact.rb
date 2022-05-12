@@ -1,5 +1,8 @@
 class Contact < ApplicationRecord
+	
 	belongs_to :kind
+	has_many :phones
+
 	def author
 	  "Vicente Rúben Xavier Simão"
 	end
