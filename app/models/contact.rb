@@ -7,6 +7,7 @@ class Contact < ApplicationRecord
 	def author
 	  "Vicente Rúben Xavier Simão"
 	end
+	
 	def as_json(options={})
 	  super(
 	  	root: true,
@@ -15,9 +16,8 @@ class Contact < ApplicationRecord
 	  		kind: { only: [:description] },
 	  		phones: { only: [:number] }
 
-	  	}	
-	
-	  	)
+	  	  }	
+		)
 	end
 
 	def in_portuguese

@@ -33,4 +33,11 @@ end
 
 puts "Contactos cadastrado com sucesso."
 
+puts "Cadastrando os numeros de telemovel..."
+Contact.all.each do |contact|
+	2.times do |i|
+		contact.phones.create!(number: Faker::PhoneNumber.cell_phone_in_e164 )
+	end
+end
+puts "numeros de telemovel cadastrados com sucesso"
 
