@@ -34,10 +34,16 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
+ gem "rack-cors"
+
+# ActiveModel::Serializer implementation and Rails hooks
+ gem 'active_model_serializers', '~> 0.10.13'
+
+ # Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff
+ gem 'rails-i18n', '~> 7.0.0'
 
 
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

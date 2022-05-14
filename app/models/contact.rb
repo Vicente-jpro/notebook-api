@@ -17,12 +17,7 @@ class Contact < ApplicationRecord
 	  super(
 	  	root: true,
 	  	methods: :author, 
-	  	include: {
-	  		kind: { only: [:description] },
-	  		phones: { only: [:id, :number] },
-	  		address: { only: [:id, :city, :street]}
-
-	  	 }	
+	  	include: [ :kind, :phones, :address]
 	  )
 	end
 
