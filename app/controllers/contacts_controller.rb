@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
   # GET /contacts/1
   def show
     #render json: { contact:  @contact.in_portuguese, message: "Success." }
-    render json: @contact 
+    render json: @contact, include: [:kind]
   end
 
   # POST /contacts

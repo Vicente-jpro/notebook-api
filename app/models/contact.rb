@@ -13,11 +13,10 @@ class Contact < ApplicationRecord
 	  "Vicente Rúben Xavier Simão"
 	end
 
+	
 	def as_json(options={})
-	  super(
-	  	root: true,
-	  	methods: :author, 
-	  	include: [ :kind, :phones, :address]
+	  super( 
+	  	include: [:kind]
 	  )
 	end
 
