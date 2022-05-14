@@ -19,10 +19,11 @@ class Contact < ApplicationRecord
 	  	methods: :author, 
 	  	include: {
 	  		kind: { only: [:description] },
-	  		phones: { only: [:id, :number] }
+	  		phones: { only: [:id, :number] },
+	  		address: { only: [:id, :city, :street]}
 
-	  	  }	
-		)
+	  	 }	
+	  )
 	end
 
 	# def in_portuguese
