@@ -6,7 +6,10 @@ class ContactSerializer < ActiveModel::Serializer
     link(:related) { contact_kind_url(object.kind.id) }
   end
 
-  has_many :phones
+  has_many :phones do 
+     link(:related) { contact_phones_url(object.phones) }
+  end
+
   has_one :address
   
   # def virtual_attribute
