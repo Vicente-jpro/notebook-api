@@ -6,11 +6,7 @@ class PhonesController < ApplicationController
 	end
 
 	def set_phones 
-	  if params[:contact_id]
-	  	@phones = Contact.find(params[:contact_id]).phones
-	  	return @phones
-	  end	
-	  @phones = @phones.find(params[:id])
+	  return @phones = Contact.find(params[:contact_id]).phones
 	end
 
 end
