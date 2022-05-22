@@ -1,3 +1,4 @@
+  module V1
   class KindsController < ApplicationController
     before_action :set_kind, only: %i[ show update destroy ]
 
@@ -53,3 +54,4 @@
         params.require(:kind).permit(:description)
       end
   end
+end
