@@ -1,5 +1,7 @@
 class Contact < ApplicationRecord
 	
+	paginates_per 5
+
 	belongs_to :kind
 	has_many :phones
 	has_one :address

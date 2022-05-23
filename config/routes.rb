@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   # 127.0.0.1:3000/contacts?version=1
   scope module: "v1", constraints: lambda{ |request| request.params[:version] == "1"} do
+  #api_version(:module => "V1", :path => {:value => "v1"}) do
     resources :contacts do 
       resource :kind, only: [:show]
       resource :kind, only: [:show], path: "relationships/kind"
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
 
 # 127.0.0.1:3000/contacts?version=2
 scope module: "v1", constraints: lambda{ |request| request.params[:version] == "2"} do
+  #api_version(:module => "V2", :path => {:value => "v2"}) do
     resources :contacts do 
       resource :kind, only: [:show]
       resource :kind, only: [:show], path: "relationships/kind"
