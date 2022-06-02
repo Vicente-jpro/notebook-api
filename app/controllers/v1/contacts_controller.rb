@@ -1,5 +1,7 @@
 module V1
   class ContactsController < ApplicationController
+    #include ErrorSerializer
+
     before_action :set_contact, only: %i[ show update destroy ]
 
     # GET /contacts
@@ -8,6 +10,8 @@ module V1
 
       @contacts = Contact.page(params[:page].try(:[], :number))
 
+      #Caching controle
+      expires_in 3.hours, public: true
       render json: @contacts
     end
 
@@ -33,7 +37,7 @@ module V1
       if @contact.update(contact_params)
         render json: @contact
       else
-        render json: @contact.errors, status: :unprocessable_entity
+        render json: @contact.errors, status: :unprocessable_entity #ErrorSerializer.serializer(@contact.errors), status: :unprocessable_entity
       end
     end
 

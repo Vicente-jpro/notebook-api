@@ -8,7 +8,7 @@ class Contact < ApplicationRecord
 
 	accepts_nested_attributes_for :phones, :address, allow_destroy: true
 
-	validates_presence_of :phones, :kind
+	validates_presence_of :phones, :kind, :address
 
 
 	def author
